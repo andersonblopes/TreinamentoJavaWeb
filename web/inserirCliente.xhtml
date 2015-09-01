@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>INSERINDO CLIENTE...</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:messages id="messages" showDetail="true" autoUpdate="true" />
+            <h:panelGrid width="400">
+                <p:panel id="panel">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th colspan="2">
+                                    <h:graphicImage value="imagens/cliente.jpg" width="60" height="60" />
+                                </th>                            
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <h:outputLabel for="nome" value="Nome: " />
+                                </td>
+                                <td>
+                                    <p:inputText id="nome" value="#{clientes.nome}" required="true" label="Nome">
+                                        <f:validateLength minimum="6" />
+                                    </p:inputText>
+                                    <p:message for="nome" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h:outputLabel for="nascimento" value="Data de Nascimento: " />
+                                </td>
+                                <td>
+                                    <p:inputMask id="nascimento" value="#{clientes.data_de_nascimento}" required="true" label="Nascimento" mask="99/99/9999" >
+                                        <f:validateLength minimum="10" />
+                                    </p:inputMask>
+                                    <p:message for="nascimento" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h:outputLabel for="cpf" value="CPF: " />
+                                </td>
+                                <td>
+                                    <p:inputText id="cpf" value="#{clientes.cpf}" required="true" label="CPF">
+                                        <f:validateLength minimum="11" />
+                                    </p:inputText>
+                                    <p:message for="cpf" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p:commandButton value="Gravar" update="panel" id="cmdBtbInserir" actionListener="#{clientes.inserir()}" />
+                </p:panel>
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>

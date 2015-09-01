@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>LOGIN DO USUÁRIO</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:panelGrid width="400">
+                <p:panel id="panelLogin">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th colspan="2"><h:graphicImage value="imagens/login.jpg" width="200" height="90" /></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <h:outputLabel for="usuario" value="Usuário"/>
+                                </td>
+                                <td>
+                                    <p:inputText id="usuario" value="#{logar.usuario}" required="true" label="Usuario">
+                                        <f:validateLength minimum="2"/>
+                                    </p:inputText>
+                                    <p:message for="usuario" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h:outputLabel for="senha" value="Senha" />
+                                </td>
+                                <td>
+                                    <p:password id="senha" value="#{logar.senha}" required="true" label="Senha" />
+                                    <p:message for="senha" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p:commandButton value="Login" update="panelLogin,display" id="cmdBtnLogin" actionListener="#{logar.logar()}"/>
+                </p:panel>
+                <p:panel id="display" header="Conectou?" style="margin-top: 10px;">
+                    <h:panelGrid columns="2">
+                        <h:outputText value="#{logar.conectou}" />
+                    </h:panelGrid>
+                </p:panel>
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Menu Web</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:panelGrid width="400">
+                <p:panel>
+                    <table border="0">
+                        <thead>
+                            <tr>
+                                <th>
+                                    MENU
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <h:outputText value="#{logar.usuario}"/>
+                                </td>
+                                <td>
+                                    <p:commandButton value="lista de Clientes" actionListener="#{clientes.chamarListaCliente()}"/>
+                                </td>
+                                <td>
+                                    <p:commandButton value="Incluir cliente" actionListener="#{clientes.chamarInserirCliente()}"/>
+                                </td>
+                                <td>
+                                    <p:commandButton value="Encerrar sessão" actionListener="#{logar.encerrar()}"/>
+                                </td>
+                            </tr>                            
+                        </tbody>
+                    </table>
+                </p:panel>
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>
